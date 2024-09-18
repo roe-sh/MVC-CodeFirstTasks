@@ -84,3 +84,4 @@ C:\Users\Orange\source\repos\MVCCodeFirstTask1\obj\Debug\MVCCodeFirstTask1.pdb
 C:\Users\Orange\source\repos\MVCCodeFirstTask1\obj\Debug\MVCCodeFirstTask1.Migrations.InitialCreate.resources
 C:\Users\Orange\source\repos\MVCCodeFirstTask1\obj\Debug\MVCCodeFirstTask1.csproj.GenerateResource.cache
 C:\Users\Orange\source\repos\MVCCodeFirstTask1\obj\Debug\MVCCodeFirstTask1.Migrations.addrelation.resources
+C:\Users\Orange\source\repos\MVCCodeFirstTask1\obj\Debug\MVCCodeFirstTask1.Migrations.Teachers.resources

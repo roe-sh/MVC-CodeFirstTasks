@@ -10,5 +10,7 @@ namespace MVCCodeFirstTask1.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Class { get; set; }
+        public virtual Classes Classes { get; set; }
+
     }
 }

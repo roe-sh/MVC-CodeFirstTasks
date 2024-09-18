@@ -127,9 +127,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentDetailsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="DTOS\StudentDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,8 +144,13 @@
     <Compile Include="Migrations\202409181411431_addrelation.Designer.cs">
       <DependentUpon>202409181411431_addrelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409181520282_Teachers.cs" />
+    <Compile Include="Migrations\202409181520282_Teachers.Designer.cs">
+      <DependentUpon>202409181520282_Teachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assigment.cs" />
+    <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentDetails.cs" />
@@ -211,6 +218,16 @@
     <Content Include="Views\StudentDetails\Details.cshtml" />
     <Content Include="Views\StudentDetails\Edit.cshtml" />
     <Content Include="Views\StudentDetails\Index.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\Classes\Details.cshtml" />
+    <Content Include="Views\Classes\Edit.cshtml" />
+    <Content Include="Views\Classes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202409181411431_addrelation.resx">
       <DependentUpon>202409181411431_addrelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409181520282_Teachers.resx">
+      <DependentUpon>202409181520282_Teachers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
