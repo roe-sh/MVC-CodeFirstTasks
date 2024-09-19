@@ -17,8 +17,9 @@ namespace MiniSchoolTask.Controllers
         // GET: Subjects
         public ActionResult Index()
         {
-            var subjects = db.Subjects.Include(s => s.Class);
-            return View(subjects.ToList());
+            // Fetch all subjects along with the related Class
+            var subjects = db.Subjects.Include(s => s.Class).ToList();
+            return View(subjects);
         }
 
         // GET: Subjects/Details/5
@@ -28,14 +29,20 @@ namespace MiniSchoolTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = db.Subjects.Find(id);
+
+            // Find the subject, include the related Tasks and Students
+            var subject = db.Subjects
+                            .Include(s => s.Tasks)     // Include related tasks
+                            .Include(s => s.Class.Students) // Include students in the related class
+                            .FirstOrDefault(s => s.SubjectId == id);
+
             if (subject == null)
             {
                 return HttpNotFound();
             }
+
             return View(subject);
         }
-
         // GET: Subjects/Create
         public ActionResult Create()
         {

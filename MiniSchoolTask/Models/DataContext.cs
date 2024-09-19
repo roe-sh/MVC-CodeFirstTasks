@@ -4,7 +4,7 @@ namespace MiniSchoolTask.Models
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base("rahaf") { }
+        public DataContext() : base("rahaf") { }  // Ensure the "rahaf" connection string exists in Web.config
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Class> Classs { get; set; }
@@ -14,7 +14,6 @@ namespace MiniSchoolTask.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Student>()
                 .HasRequired(s => s.Class)
                 .WithMany(c => c.Students)
@@ -25,13 +24,11 @@ namespace MiniSchoolTask.Models
                 .WithMany(t => t.Classes)
                 .HasForeignKey(c => c.TeacherId);
 
-
             modelBuilder.Entity<Subject>()
                 .HasRequired(s => s.Class)
                 .WithMany(c => c.Subjects)
                 .HasForeignKey(s => s.ClassId);
 
-           
             modelBuilder.Entity<Tasks>()
                 .HasRequired(t => t.Subject)
                 .WithMany(s => s.Tasks)

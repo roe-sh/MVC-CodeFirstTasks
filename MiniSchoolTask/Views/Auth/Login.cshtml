@@ -1,0 +1,110 @@
+﻿@model MiniSchoolTask.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Center the login card and apply styles -->
+<style>
+    body {
+        background-color: #f7f7f7;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .form-control {
+        height: 45px;
+        padding: 10px;
+    }
+
+    .form-horizontal .control-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-horizontal .text-danger {
+        font-size: 0.9em;
+    }
+
+    .register-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+    }
+
+        .register-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .register-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="login-container">
+    <h2>Login</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4 class="text-center">Sign in to your account</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Enter your email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                <div>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="register-link">
+        Don't have an account? @Html.ActionLink("Register Here", "Register", "Auth")
+    </div>
+</div>

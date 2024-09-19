@@ -127,7 +127,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
@@ -140,8 +141,21 @@
     <Compile Include="Migrations\202409191244185_InitialCreate.Designer.cs">
       <DependentUpon>202409191244185_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409191808546_InitialCreate1.cs" />
+    <Compile Include="Migrations\202409191808546_InitialCreate1.Designer.cs">
+      <DependentUpon>202409191808546_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409191903129_InitialCreate2.cs" />
+    <Compile Include="Migrations\202409191903129_InitialCreate2.Designer.cs">
+      <DependentUpon>202409191903129_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409192010500_InitialCreate3.cs" />
+    <Compile Include="Migrations\202409192010500_InitialCreate3.Designer.cs">
+      <DependentUpon>202409192010500_InitialCreate3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Register.cs" />
@@ -168,6 +182,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Premium Vector _ Education logo kids logo are reading books.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -199,7 +214,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Teachers\Create.cshtml" />
@@ -222,22 +236,17 @@
     <Content Include="Views\Tasks\Details.cshtml" />
     <Content Include="Views\Tasks\Edit.cshtml" />
     <Content Include="Views\Tasks\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Logout.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_Layout1.cshtml" />
-    <Content Include="Views\Account\Logout.cshtml" />
-    <Content Include="Views\Account\Students.cshtml" />
-    <Content Include="Views\Account\Subjects.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\About.cshtml" />
-    <Content Include="Views\Account\Contact.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\Classes\Details.cshtml" />
+    <Content Include="Views\Classes\Edit.cshtml" />
+    <Content Include="Views\Classes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DTOS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -269,6 +278,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202409191244185_InitialCreate.resx">
       <DependentUpon>202409191244185_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409191808546_InitialCreate1.resx">
+      <DependentUpon>202409191808546_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409191903129_InitialCreate2.resx">
+      <DependentUpon>202409191903129_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409192010500_InitialCreate3.resx">
+      <DependentUpon>202409192010500_InitialCreate3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

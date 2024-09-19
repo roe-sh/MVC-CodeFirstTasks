@@ -1,0 +1,126 @@
+﻿@model MiniSchoolTask.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Style the registration form and layout -->
+<style>
+    body {
+        background-color: #f7f7f7;
+    }
+
+    .register-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .register-container h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .form-control {
+        height: 45px;
+        padding: 10px;
+    }
+
+    .form-horizontal .control-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-horizontal .text-danger {
+        font-size: 0.9em;
+    }
+
+    .login-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+    }
+
+        .login-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="register-container">
+    <h2>Register</h2>
+
+    @using (Html.BeginForm("Register", "Auth", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4 class="text-center">Create your account</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FullName, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", placeholder = "Enter your full name" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Enter your email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                <div>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label" })
+                <div>
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm your password" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="login-link">
+        Already have an account? @Html.ActionLink("Login here", "Login", "Auth")
+    </div>
+</div>

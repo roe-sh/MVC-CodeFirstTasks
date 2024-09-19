@@ -1,0 +1,12 @@
+﻿@model MiniSchoolTask.Models.Class
+
+<h2>@Model.ClassName</h2>
+<p>@Model.Description</p>
+
+<h3>Students</h3>
+<ul>
+    @foreach (var student in Model.Students)
+    {
+        <li>@student.StudentName (Age: @student.StudentAge)</li>
+    }
+</ul>

@@ -1,21 +1,51 @@
 ﻿using MiniSchoolTask.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace MiniSchoolTask.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private DataContext db = new DataContext();
+        
+        // GET:
+        
+        public ActionResult Dashboard()
         {
-            return View();
+            if (Session["TeacherId"] == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            // Get the classes and subjects associated with the logged-in teacher
+            var teacherId = (int)Session["TeacherId"];
+            var classes = db.Classs.Where(c => c.TeacherId == teacherId).ToList();
+            var subjects = db.Subjects.Where(s => s.Class.TeacherId == teacherId).ToList();
+
+            var dashboardViewModel = new DashboardViewModel
+            {
+                Classes = classes,
+                Subjects = subjects
+            };
+
+            return View(dashboardViewModel);
         }
 
-        public ActionResult About()
+        // GET: ClassDetails
+        public ActionResult ClassDetails(int id)
+        {
+            var classDetails = db.Classs.Include("Students").FirstOrDefault(c => c.ClassId == id);
+            return View(classDetails);
+        }
+
+        // GET: SubjectDetails
+        public ActionResult SubjectDetails(int id)
+        {
+            var subjectDetails = db.Subjects.Include("Tasks").FirstOrDefault(s => s.SubjectId == id);
+            return View(subjectDetails);
+        }
+    
+public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
@@ -28,7 +58,7 @@ namespace MiniSchoolTask.Controllers
 
             return View();
         }
-        private DataContext db = new DataContext();
+        
 
         // GET: Account/Login
     }

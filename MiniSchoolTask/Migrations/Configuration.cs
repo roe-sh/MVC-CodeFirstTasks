@@ -44,13 +44,7 @@
             var scienceClassId = context.Classs.FirstOrDefault(c => c.ClassName == "Science Class").ClassId;
             var historyClassId = context.Classs.FirstOrDefault(c => c.ClassName == "History Class").ClassId;
 
-            
-            context.Subjects.AddOrUpdate(
-                s => s.SubjectName,
-                new Subject { SubjectName = "Algebra", Details = "Basic algebra", ClassId = mathClassId },
-                new Subject { SubjectName = "Physics", Details = "Basic physics", ClassId = scienceClassId },
-                new Subject { SubjectName = "World History", Details = "An overview of world history", ClassId = historyClassId }
-            );
+           
 
             context.SaveChanges(); 
         }
