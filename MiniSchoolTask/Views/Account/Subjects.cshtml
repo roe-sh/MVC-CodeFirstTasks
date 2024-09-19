@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MiniSchoolTask.Models.Subject>
+
+@{
+    ViewBag.Title = "Subjects";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Subjects List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject ID</th>
+            <th>Subject Name</th>
+            <th>Details</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subject in Model)
+        {
+            <tr>
+                <td>@subject.SubjectId</td>
+                <td>@subject.SubjectName</td>
+                <td>@subject.Details</td>
+                <td>@subject.Class.ClassName</td> <!-- Assuming ClassName is a property in Class -->
+            </tr>
+        }
+    </tbody>
+</table>

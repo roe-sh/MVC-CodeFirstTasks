@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout1.cshtml"; 
+}
+
+<div class="jumbotron">
+    <h1>Welcome to MiniSchool!</h1>
+    <p class="lead">This is a sample page with two cards for Students and Subjects.</p>
+</div>
+
+<div class="row">
+    <!-- Card for Students -->
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Students</h5>
+                <p class="card-text">Click here to view all students.</p>
+                <a href="@Url.Action("Students", "Home")" class="btn btn-primary">View Students</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for Subjects -->
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Subjects</h5>
+                <p class="card-text">Click here to view all subjects.</p>
+                <a href="@Url.Action("Subjects", "Home")" class="btn btn-primary">View Subjects</a>
+            </div>
+        </div>
+    </div>
+</div>
